@@ -1,0 +1,517 @@
+/* Reset e base */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* Navbar fixa e translúcida */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* preto translúcido */
+  backdrop-filter: blur(10px); /* efeito vidro fosco */
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* Container para os itens à esquerda (ícone Instagram) */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* Container para os itens à direita (botão contato) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Logo centralizada */
+.navbar-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 90px; /* logo maior */
+  max-width: 200px;
+  object-fit: contain;
+  user-select: none;
+}
+
+/* Ícones */
+.navbar-icon img {
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navbar-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Botão de contato */
+.navbar-contact {
+  color: white;
+  text-decoration: none;
+  background-color: #c59d5f;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  white-space: normal; /* permite quebra de linha */
+  max-width: 120px; /* controla largura para facilitar quebra */
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.navbar-contact:hover {
+  background-color: #b58d50;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .navbar-logo {
+    height: 70px;
+  }
+
+  .navbar-icon img {
+    height: 30px;
+  }
+
+  .navbar-contact {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    max-width: 90px;
+    white-space: normal;
+  }
+
+  /* Evita sobreposição da logo com os botões em telas pequenas */
+  .navbar-left,
+  .navbar-right {
+    flex: 0 0 auto;
+  }
+}
+
+/* Seção Hero */
+#hero {
+  background: url('../assets/imperioft.webp') center center / cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: white;
+  overflow: hidden; /* garante que o ::before fique dentro */
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.793); /* camada escura com 50% de opacidade */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* fica acima da camada escura */
+  background-color: rgba(0, 0, 0, 0); /* fundo escuro semitransparente para o conteúdo */
+  padding: 100px 40px 40px; /* compensação interna pela navbar */
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-reservar {
+  background-color: #25d366;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reservar:hover {
+  background-color: #1eb75c;
+}
+
+/* Seções gerais */
+section {
+  padding: 40px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+.apresentacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  background-color: #e9f1ee; /* cor de fundo clara */
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.apresentacao-imagem img {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.apresentacao-texto {
+  max-width: 450px;
+}
+
+.apresentacao-texto h2 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  color: #111;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+.btn-reservar {
+  background-color: #d4af37; /* dourado */
+  color: black;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-reservar:hover {
+  background-color: #b58d1f;
+  color: white;
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 768px) {
+  .apresentacao {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .apresentacao-texto {
+    max-width: 100%;
+  }
+
+  .apresentacao-imagem img {
+    max-width: 100%;
+  }
+}
+
+
+
+.sobre-nos {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.video-container {
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.sobre-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sobre-conteudo img {
+  width: 50%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.sobre-texto {
+  width: 50%;
+}
+
+.sobre-texto h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.sobre-texto p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+
+
+
+section.mapa {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #000; /* fundo preto */
+  color: #fff;
+  padding: 40px 20px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.mapa-left {
+  flex: 1 1 400px;
+  min-height: 400px;
+}
+
+.mapa-left iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.mapa-right {
+  flex: 1 1 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.texto-foto {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.texto-foto .texto h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.texto-foto .texto p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.texto-foto img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+  .texto-foto {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .texto-foto .texto {
+    flex: 1;
+  }
+
+  .texto-foto img {
+    flex: 1;
+    max-height: 300px;
+    margin-left: 20px;
+  }
+}
+
+
+.planos {
+  background-color: #222; /* cinza escuro */
+  padding: 60px 20px;
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container-planos {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap; /* mantém na mesma linha */
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.plano-card {
+  background-color: #333;
+  border-radius: 10px;
+  padding: 30px 20px;
+  flex: 1 1 0; /* cresce e encolhe igualmente, largura base 0 */
+  min-width: 220px; /* para não ficar muito pequeno */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plano-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+}
+
+.plano-destaque {
+  background-color: #e50914; /* vermelho Netflix */
+  box-shadow: 0 8px 25px rgba(229, 9, 20, 0.7);
+}
+
+/* demais estilos permanecem iguais */
+
+.plano-card h3 {
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+}
+
+.preco {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+.preco span {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #ccc;
+  margin-left: 4px;
+}
+
+.plano-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  width: 100%;
+}
+
+.plano-card ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 1rem;
+}
+
+.plano-card ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.plano-card button {
+  background-color: #fff;
+  color: #e50914;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.plano-card button:hover {
+  background-color: #e50914;
+  color: #fff;
+}
+
+/* Remover scroll, não empilhar, diminui proporcionalmente */
+@media (max-width: 768px) {
+  .container-planos {
+    flex-wrap: wrap; /* permite empilhar se necessário */
+    justify-content: center;
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .plano-card {
+    flex: 1 1 140px; /* largura base menor e flexível */
+    min-width: 120px;
+    max-width: 180px;
+    padding: 15px 10px;
+  }
+
+  .plano-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .preco {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .preco span {
+    font-size: 0.85rem;
+  }
+
+  .plano-card ul li {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .plano-card button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+
+
